@@ -1,11 +1,24 @@
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
+const refHeader = document.querySelector(".ref-header");
 const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
 const revealItems = document.querySelectorAll(".reveal");
 const cookieBanner = document.getElementById("cookie-banner");
 const cookieButtons = document.querySelectorAll("[data-cookie-action]");
 const form = document.getElementById("quote-form");
 const feedback = document.querySelector(".form-feedback");
+
+const syncHeaderScrollState = () => {
+  if (!refHeader) {
+    return;
+  }
+
+  const shouldCompact = window.scrollY > 70;
+  refHeader.classList.toggle("is-scrolled", shouldCompact);
+};
+
+syncHeaderScrollState();
+window.addEventListener("scroll", syncHeaderScrollState, { passive: true });
 
 if (navToggle && navMenu) {
   navToggle.addEventListener("click", () => {
