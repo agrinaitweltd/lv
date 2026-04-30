@@ -195,21 +195,19 @@ textarea {
 .ref-main-nav .nav-toggle {
   position: absolute;
   right: 0.75rem;
-  top: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 2;
   display: none;
   align-items: center;
-  gap: 0.55rem;
-  border: 1px solid #bdbdbd;
-  border-radius: 14px;
-  background: #f1f1f1;
-  color: #2a2a2a;
-  min-height: 56px;
-  padding: 0.65rem 1.15rem;
-}
-
-.ref-main-nav .nav-toggle span:not(.sr-only):not(.nav-toggle-label) {
-  background: #2e2e2e;
+  gap: 0.6rem;
+  border: 1.5px solid #cacaca;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1a1a1a;
+  min-height: 48px;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
 }
 
 .ref-main-nav .nav-toggle .nav-toggle-label {
@@ -221,15 +219,27 @@ textarea {
   clip: auto;
   white-space: nowrap;
   border: 0;
-  font-size: 1.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.15em;
   font-weight: 700;
+  color: #1a1a1a;
 }
 
 .ref-main-nav .nav-toggle span:not(.sr-only):not(.nav-toggle-label) {
-  width: 24px;
-  margin: 0;
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #1a1a1a;
+  margin: 2.5px 0;
+  border-radius: 2px;
+}
+
+.ref-main-nav .nav-toggle .hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
 }
 
 .ref-main-nav .nav-menu {
@@ -303,26 +313,28 @@ textarea {
 .ref-header.is-scrolled .ref-main-nav .nav-toggle {
   position: static;
   display: inline-flex;
-  border-radius: 18px;
-  border: 1.5px solid #d0d0d0;
+  border-radius: 12px;
+  border: 1.5px solid #cacaca;
   background: #ffffff;
   color: #1a1a1a;
-  padding: 0.55rem 1.1rem;
-  min-height: 46px;
-  gap: 0.55rem;
-  font-size: 1rem;
+  padding: 0.5rem 1.1rem;
+  min-height: 48px;
+  gap: 0.6rem;
+  transform: none;
 }
 
 .ref-header.is-scrolled .ref-main-nav .nav-toggle .nav-toggle-label {
-  font-size: 1rem;
-  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
   font-weight: 700;
+  color: #1a1a1a;
 }
 
 .ref-header.is-scrolled .ref-main-nav .nav-toggle span:not(.sr-only):not(.nav-toggle-label) {
   width: 20px;
   height: 2px;
   background: #1a1a1a;
+  border-radius: 2px;
 }
 
 .ref-header.is-scrolled .ref-main-nav .nav-menu {
