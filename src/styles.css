@@ -91,6 +91,7 @@ textarea {
   background: #3ea9dd;
   box-shadow: 0 12px 26px rgba(8, 24, 41, 0.22);
   transition: background 260ms ease, box-shadow 260ms ease;
+  overflow: visible;
 }
 
 .ref-topbar {
@@ -261,8 +262,8 @@ textarea {
 }
 
 .ref-header.is-scrolled {
-  background: #e9e9eb;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(15, 22, 31, 0.10);
 }
 
 .ref-header.is-scrolled .ref-topbar,
@@ -275,26 +276,22 @@ textarea {
 }
 
 .ref-header.is-scrolled .ref-midbar-inner {
-  min-height: 106px;
+  min-height: 70px;
   padding: 0;
-  max-width: none;
-  width: 100%;
-  padding-left: 3rem;
-  padding-right: 3rem;
 }
 
 .ref-header.is-scrolled .ref-brand img {
-  width: 88px;
-  min-width: 88px;
-  max-height: 64px;
+  width: 80px;
+  min-width: 80px;
+  max-height: 58px;
 }
 
 .ref-header.is-scrolled .ref-nav-shell {
   position: absolute;
-  right: 3rem;
-  top: 22px;
+  right: 1.35rem;
+  top: 50%;
+  transform: translateY(-50%);
   width: auto;
-  transform: none;
   margin: 0;
 }
 
@@ -306,24 +303,26 @@ textarea {
 .ref-header.is-scrolled .ref-main-nav .nav-toggle {
   position: static;
   display: inline-flex;
-  min-height: 60px;
-  border-radius: 16px;
-  border: 2px solid #bfc0c3;
-  background: rgba(235, 235, 237, 0.75);
-  padding: 0.7rem 1.7rem;
+  border-radius: 18px;
+  border: 1.5px solid #d0d0d0;
+  background: #ffffff;
+  color: #1a1a1a;
+  padding: 0.55rem 1.1rem;
+  min-height: 46px;
+  gap: 0.55rem;
+  font-size: 1rem;
 }
 
 .ref-header.is-scrolled .ref-main-nav .nav-toggle .nav-toggle-label {
-  font-size: 2.9rem;
-  letter-spacing: 0.18em;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
   font-weight: 700;
 }
 
 .ref-header.is-scrolled .ref-main-nav .nav-toggle span:not(.sr-only):not(.nav-toggle-label) {
-  width: 30px;
-  height: 3px;
-  border-radius: 999px;
-  background: #444447;
+  width: 20px;
+  height: 2px;
+  background: #1a1a1a;
 }
 
 .ref-header.is-scrolled .ref-main-nav .nav-menu {
@@ -1183,11 +1182,6 @@ textarea {
     width: 100%;
   }
 
-  .ref-header.is-scrolled .ref-midbar-inner {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
   .ref-midbar-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -1264,25 +1258,13 @@ textarea {
 
 @media (max-width: 699px) {
   .ref-header.is-scrolled .ref-midbar-inner {
-    min-height: 82px;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    min-height: 86px;
   }
 
   .ref-header.is-scrolled .ref-brand img {
-    width: 72px;
-    min-width: 72px;
-    max-height: 52px;
-  }
-
-  .ref-header.is-scrolled .ref-main-nav .nav-toggle {
-    min-height: 52px;
-    padding: 0.55rem 1.1rem;
-    border-radius: 14px;
-  }
-
-  .ref-header.is-scrolled .ref-main-nav .nav-toggle .nav-toggle-label {
-    font-size: 2.1rem;
+    width: 76px;
+    min-width: 76px;
+    max-height: 56px;
   }
 
   .ref-topbar-inner {
