@@ -261,8 +261,8 @@ textarea {
 }
 
 .ref-header.is-scrolled {
-  background: #ececee;
-  box-shadow: 0 8px 20px rgba(15, 22, 31, 0.16);
+  background: #e9e9eb;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
 }
 
 .ref-header.is-scrolled .ref-topbar,
@@ -277,17 +277,21 @@ textarea {
 .ref-header.is-scrolled .ref-midbar-inner {
   min-height: 106px;
   padding: 0;
+  max-width: none;
+  width: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .ref-header.is-scrolled .ref-brand img {
-  width: 95px;
-  min-width: 95px;
-  max-height: 74px;
+  width: 88px;
+  min-width: 88px;
+  max-height: 64px;
 }
 
 .ref-header.is-scrolled .ref-nav-shell {
   position: absolute;
-  right: 1.35rem;
+  right: 3rem;
   top: 22px;
   width: auto;
   transform: none;
@@ -302,6 +306,24 @@ textarea {
 .ref-header.is-scrolled .ref-main-nav .nav-toggle {
   position: static;
   display: inline-flex;
+  min-height: 60px;
+  border-radius: 16px;
+  border: 2px solid #bfc0c3;
+  background: rgba(235, 235, 237, 0.75);
+  padding: 0.7rem 1.7rem;
+}
+
+.ref-header.is-scrolled .ref-main-nav .nav-toggle .nav-toggle-label {
+  font-size: 2.9rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+}
+
+.ref-header.is-scrolled .ref-main-nav .nav-toggle span:not(.sr-only):not(.nav-toggle-label) {
+  width: 30px;
+  height: 3px;
+  border-radius: 999px;
+  background: #444447;
 }
 
 .ref-header.is-scrolled .ref-main-nav .nav-menu {
@@ -1161,6 +1183,11 @@ textarea {
     width: 100%;
   }
 
+  .ref-header.is-scrolled .ref-midbar-inner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .ref-midbar-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -1237,13 +1264,25 @@ textarea {
 
 @media (max-width: 699px) {
   .ref-header.is-scrolled .ref-midbar-inner {
-    min-height: 86px;
+    min-height: 82px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 
   .ref-header.is-scrolled .ref-brand img {
-    width: 76px;
-    min-width: 76px;
-    max-height: 56px;
+    width: 72px;
+    min-width: 72px;
+    max-height: 52px;
+  }
+
+  .ref-header.is-scrolled .ref-main-nav .nav-toggle {
+    min-height: 52px;
+    padding: 0.55rem 1.1rem;
+    border-radius: 14px;
+  }
+
+  .ref-header.is-scrolled .ref-main-nav .nav-toggle .nav-toggle-label {
+    font-size: 2.1rem;
   }
 
   .ref-topbar-inner {
