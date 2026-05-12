@@ -34,6 +34,23 @@ navLinks.forEach((link) => {
   });
 });
 
+// Active nav section highlighting
+const sections = document.querySelectorAll("section[id]");
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      }
+    });
+  },
+  { threshold: 0.3, rootMargin: "-80px 0px -40% 0px" }
+);
+
+sections.forEach((section) => sectionObserver.observe(section));
+
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -75,7 +92,7 @@ if (form && feedback) {
     event.preventDefault();
 
     const formData = new FormData(form);
-    const name = String(formData.get("name") || "there").trim();
+    const name = String(formData.get("name") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
     const message = String(formData.get("message") || "").trim();
 
@@ -84,7 +101,11 @@ if (form && feedback) {
       return;
     }
 
-    feedback.textContent = `Thanks ${name}. Your quote request is ready to send. Call or message 07555653736 to complete booking.`;
+    const waText = `Hi, I'd like a free quote!\n\nName: ${name}\nPhone: ${phone}\n\nMessage:\n${message}`;
+    const waUrl = `https://wa.me/447555653736?text=${encodeURIComponent(waText)}`;
+    window.open(waUrl, "_blank", "noreferrer");
+
+    feedback.textContent = `Thanks ${name}! Opening WhatsApp to send your quote request.`;
     form.reset();
   });
 }
