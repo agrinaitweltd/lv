@@ -293,13 +293,19 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 4px;
+  height: 14px;
+  width: 20px;
+  min-width: 20px;
+  flex: 0 0 20px;
 }
 
 .ref-main-nav .nav-toggle .hamburger-lines span {
   display: block;
   width: 20px;
-  height: 2px;
+  min-height: 2px;
+  flex: 0 0 2px;
   background: #1a1a1a;
   border-radius: 2px;
 }
@@ -406,7 +412,8 @@ textarea {
 
 .ref-header.is-scrolled .ref-main-nav .nav-toggle .hamburger-lines span {
   width: 20px;
-  height: 2px;
+  min-height: 2px;
+  flex: 0 0 2px;
   background: #1a1a1a;
   border-radius: 2px;
 }
@@ -1596,16 +1603,34 @@ textarea {
     display: none;
   }
 
+  .ref-header {
+    position: sticky;
+  }
+
+  .ref-nav-shell {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    margin: 0;
+    z-index: 110;
+  }
+
   .ref-header.is-scrolled .ref-nav-shell {
-    position: static;
-    width: var(--container);
-    margin: 0 auto;
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    margin: 0;
   }
 
   .ref-header.is-scrolled .ref-main-nav .nav-menu {
-    right: auto;
-    left: 0;
-    width: 100%;
+    right: 0;
+    left: auto;
+    top: calc(100% + 0.5rem);
+    width: min(18rem, calc(100vw - 1rem));
   }
 
   .ref-midbar-inner {
@@ -1643,21 +1668,21 @@ textarea {
   }
 
   .ref-main-nav .nav-menu {
-    position: fixed;
-    top: auto;
-    left: 0;
+    position: absolute;
+    top: calc(100% + 0.5rem);
     right: 0;
-    bottom: 0;
+    left: auto;
     display: none;
     flex-direction: column;
     align-items: stretch;
     padding: 0.75rem;
     background: rgba(255, 255, 255, 0.98);
-    border-radius: 0;
-    border-top: 1px solid #e0e0e0;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
     box-shadow: var(--shadow-soft);
     z-index: 99;
-    max-height: calc(100vh - 120px);
+    width: min(18rem, calc(100vw - 1rem));
+    max-height: min(60vh, 28rem);
     overflow-y: auto;
   }
 
@@ -1722,24 +1747,19 @@ textarea {
     display: none !important;
   }
 
-  .ref-nav-shell {
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: 0;
-  }
-
   .ref-main-nav .nav-toggle {
     display: inline-flex !important;
     position: static;
+    align-items: center;
+    justify-content: center;
     border-radius: 12px;
     border: 1.5px solid #cacaca;
     background: #ffffff;
     color: #1a1a1a;
-    padding: 0.5rem 0.7rem;
+    width: 44px;
     min-height: 40px;
-    gap: 0.4rem;
+    padding: 0;
+    gap: 0;
     transform: none;
     z-index: 100;
   }
@@ -1750,27 +1770,28 @@ textarea {
 
   .ref-main-nav .nav-toggle .hamburger-lines span {
     width: 18px;
-    height: 2px;
+    min-height: 2px;
+    flex: 0 0 2px;
     background: #1a1a1a;
     border-radius: 2px;
   }
 
   .ref-main-nav .nav-menu {
-    position: fixed;
-    top: auto;
-    left: 0;
+    position: absolute;
+    top: calc(100% + 0.5rem);
     right: 0;
-    bottom: 0;
+    left: auto;
     display: none;
     flex-direction: column;
     align-items: stretch;
     padding: 0.75rem;
     background: rgba(255, 255, 255, 0.98);
-    border-radius: 0;
-    border-top: 1px solid #e0e0e0;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
     box-shadow: var(--shadow-soft);
     z-index: 99;
-    max-height: calc(100vh - 100px);
+    width: min(18rem, calc(100vw - 1rem));
+    max-height: min(60vh, 24rem);
     overflow-y: auto;
   }
 

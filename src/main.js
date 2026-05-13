@@ -72,37 +72,79 @@ revealItems.forEach((item) => {
   }
 });
 
-const cookieKey = "lv-cookie-consent";
+if (navToggle && navMenu) {
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Node)) {
+      return;
+    }
 
-// Show cookie banner if no consent stored
-if (!localStorage.getItem(cookieKey) && cookieBanner) {
-  cookieBanner.removeAttribute("hidden");
-  console.log("Cookie banner shown");
+    if (!navMenu.contains(target) && !navToggle.contains(target)) {
+      navMenu.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      navMenu.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
 }
 
-// Handle cookie button clicks
+const cookieKey = "lv-cookie-consent";
+
+const readCookieConsent = () => {
+  try {
+    return localStorage.getItem(cookieKey);
+  } catch {
+    return null;
+  }
+};
+
+const writeCookieConsent = (value) => {
+  try {
+    localStorage.setItem(cookieKey, value);
+  } catch {
+    // Ignore storage failures so the banner can still close.
+  }
+};
+
+const showCookieBanner = () => {
+  if (!cookieBanner) {
+    return;
+  }
+
+  cookieBanner.removeAttribute("hidden");
+};
+
+const hideCookieBanner = (value) => {
+  if (!cookieBanner) {
+    return;
+  }
+
+  writeCookieConsent(value);
+  cookieBanner.setAttribute("hidden", "");
+};
+
+if (!readCookieConsent() && cookieBanner) {
+  showCookieBanner();
+}
+
 cookieButtons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    const action = button.getAttribute("data-cookie-action") || "accepted";
-    localStorage.setItem(cookieKey, action);
-    console.log("Cookie action:", action);
-    if (cookieBanner) {
-      cookieBanner.setAttribute("hidden", "");
-    }
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    hideCookieBanner(button.getAttribute("data-cookie-action") || "accept");
   });
 });
 
-// Close cookie modal when clicking overlay
 if (cookieBanner) {
   const cookieOverlay = cookieBanner.querySelector(".cookie-overlay");
-  if (cookieOverlay) {
-    cookieOverlay.addEventListener("click", () => {
-      localStorage.setItem(cookieKey, "rejected");
-      cookieBanner.setAttribute("hidden", "");
-    });
-  }
+  cookieOverlay?.addEventListener("click", () => {
+    hideCookieBanner("reject");
+  });
 }
 
 if (form && feedback) {
