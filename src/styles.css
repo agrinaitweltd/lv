@@ -289,20 +289,19 @@ textarea {
   color: #1a1a1a;
 }
 
-.ref-main-nav .nav-toggle span:not(.sr-only):not(.nav-toggle-label) {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: #1a1a1a;
-  margin: 2.5px 0;
-  border-radius: 2px;
-}
-
 .ref-main-nav .nav-toggle .hamburger-lines {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 4px;
+}
+
+.ref-main-nav .nav-toggle .hamburger-lines span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #1a1a1a;
+  border-radius: 2px;
 }
 
 .ref-main-nav .nav-menu {
@@ -405,7 +404,7 @@ textarea {
   color: #1a1a1a;
 }
 
-.ref-header.is-scrolled .ref-main-nav .nav-toggle span:not(.sr-only):not(.nav-toggle-label) {
+.ref-header.is-scrolled .ref-main-nav .nav-toggle .hamburger-lines span {
   width: 20px;
   height: 2px;
   background: #1a1a1a;
@@ -1749,7 +1748,7 @@ textarea {
     display: none;
   }
 
-  .ref-main-nav .nav-toggle span:not(.sr-only):not(.nav-toggle-label) {
+  .ref-main-nav .nav-toggle .hamburger-lines span {
     width: 18px;
     height: 2px;
     background: #1a1a1a;

@@ -83,8 +83,9 @@ if (!localStorage.getItem(cookieKey) && cookieBanner) {
 // Handle cookie button clicks
 cookieButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
+    e.stopPropagation();
     e.preventDefault();
-    const action = button.dataset.cookieAction || "accepted";
+    const action = button.getAttribute("data-cookie-action") || "accepted";
     localStorage.setItem(cookieKey, action);
     console.log("Cookie action:", action);
     if (cookieBanner) {
