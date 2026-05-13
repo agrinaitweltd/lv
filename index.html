@@ -431,15 +431,16 @@
     </a>
 
     <div class="cookie-banner" id="cookie-banner" hidden>
-      <div>
+      <div class="cookie-overlay"></div>
+      <div class="cookie-modal">
         <h2>We value your privacy</h2>
         <p>
-          This site uses basic cookies for consent preferences and a smoother browsing experience.
+          We use cookies to ensure you get the best experience on our site. We'll only use cookies for consent preferences and analytics.
         </p>
-      </div>
-      <div class="cookie-actions">
-        <button class="button button-primary" type="button" data-cookie-action="accept">Accept All Cookies</button>
-        <button class="button button-secondary" type="button" data-cookie-action="reject">Reject All Cookies</button>
+        <div class="cookie-actions">
+          <button class="button button-secondary" type="button" data-cookie-action="reject">Reject</button>
+          <button class="button button-primary" type="button" data-cookie-action="accept">Accept All</button>
+        </div>
       </div>
     </div>
 
