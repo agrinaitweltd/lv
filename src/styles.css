@@ -216,8 +216,13 @@ textarea {
   border-radius: 50%;
   background: #1d8f53;
   color: #ffffff;
-  font-size: 1.6rem;
-  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.ref-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
 }
 
 .ref-contact-item strong,
