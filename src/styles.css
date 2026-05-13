@@ -416,6 +416,18 @@ textarea {
   box-shadow: 0 16px 28px rgba(16, 26, 36, 0.18);
 }
 
+/* Override is-scrolled styles for mobile menu */
+@media (max-width: 919px) {
+  .ref-header.is-scrolled .ref-main-nav .nav-menu {
+    position: fixed !important;
+    right: 0;
+    top: auto;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+  }
+}
+
 .ref-header.is-scrolled .ref-main-nav .nav-menu.open {
   display: flex;
 }
@@ -1608,7 +1620,7 @@ textarea {
   .ref-main-nav .nav-toggle {
     display: inline-block;
     position: relative;
-    z-index: 7;
+    z-index: 100;
   }
 
   .ref-main-nav .nav-toggle .nav-toggle-label {
@@ -1631,9 +1643,9 @@ textarea {
     padding: 0.75rem;
     background: rgba(255, 255, 255, 0.98);
     border-radius: 0;
-    border-top: 1px solid #d8d8d8;
+    border-top: 1px solid #e0e0e0;
     box-shadow: var(--shadow-soft);
-    z-index: 6;
+    z-index: 99;
     max-height: calc(100vh - 120px);
     overflow-y: auto;
   }
@@ -1718,6 +1730,7 @@ textarea {
     min-height: 40px;
     gap: 0.4rem;
     transform: none;
+    z-index: 100;
   }
 
   .ref-main-nav .nav-toggle .nav-toggle-label {
@@ -1745,7 +1758,7 @@ textarea {
     border-radius: 0;
     border-top: 1px solid #e0e0e0;
     box-shadow: var(--shadow-soft);
-    z-index: 6;
+    z-index: 99;
     max-height: calc(100vh - 100px);
     overflow-y: auto;
   }
