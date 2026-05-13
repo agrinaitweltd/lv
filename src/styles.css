@@ -1411,6 +1411,10 @@ textarea {
   justify-content: center;
 }
 
+.cookie-banner[hidden] {
+  display: none;
+}
+
 .cookie-overlay {
   position: absolute;
   inset: 0;

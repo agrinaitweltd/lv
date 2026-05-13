@@ -74,13 +74,19 @@ revealItems.forEach((item) => {
 
 const cookieKey = "lv-cookie-consent";
 
+// Show cookie banner if no consent stored
 if (!localStorage.getItem(cookieKey) && cookieBanner) {
   cookieBanner.removeAttribute("hidden");
+  console.log("Cookie banner shown");
 }
 
+// Handle cookie button clicks
 cookieButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    localStorage.setItem(cookieKey, button.dataset.cookieAction || "accepted");
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    const action = button.dataset.cookieAction || "accepted";
+    localStorage.setItem(cookieKey, action);
+    console.log("Cookie action:", action);
     if (cookieBanner) {
       cookieBanner.setAttribute("hidden", "");
     }
