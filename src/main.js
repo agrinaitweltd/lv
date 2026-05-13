@@ -75,17 +75,28 @@ revealItems.forEach((item) => {
 const cookieKey = "lv-cookie-consent";
 
 if (!localStorage.getItem(cookieKey) && cookieBanner) {
-  cookieBanner.hidden = false;
+  cookieBanner.removeAttribute("hidden");
 }
 
 cookieButtons.forEach((button) => {
   button.addEventListener("click", () => {
     localStorage.setItem(cookieKey, button.dataset.cookieAction || "accepted");
     if (cookieBanner) {
-      cookieBanner.hidden = true;
+      cookieBanner.setAttribute("hidden", "");
     }
   });
 });
+
+// Close cookie modal when clicking overlay
+if (cookieBanner) {
+  const cookieOverlay = cookieBanner.querySelector(".cookie-overlay");
+  if (cookieOverlay) {
+    cookieOverlay.addEventListener("click", () => {
+      localStorage.setItem(cookieKey, "rejected");
+      cookieBanner.setAttribute("hidden", "");
+    });
+  }
+}
 
 if (form && feedback) {
   form.addEventListener("submit", (event) => {
