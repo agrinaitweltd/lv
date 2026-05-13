@@ -1607,26 +1607,35 @@ textarea {
 
   .ref-main-nav .nav-toggle {
     display: inline-block;
+    position: relative;
+    z-index: 7;
   }
 
   .ref-main-nav .nav-toggle .nav-toggle-label {
     font-size: 1.5rem;
   }
 
+  .ref-main-nav {
+    position: relative;
+  }
+
   .ref-main-nav .nav-menu {
-    position: absolute;
-    top: calc(100% + 0.35rem);
+    position: fixed;
+    top: auto;
     left: 0;
     right: 0;
+    bottom: 0;
     display: none;
     flex-direction: column;
     align-items: stretch;
     padding: 0.75rem;
     background: rgba(255, 255, 255, 0.98);
     border-radius: 0;
-    border: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
     box-shadow: var(--shadow-soft);
     z-index: 6;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
   }
 
   .ref-main-nav .nav-menu.open {
@@ -1636,9 +1645,22 @@ textarea {
   .ref-main-nav .nav-menu a {
     width: 100%;
     border-right: 0;
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid #e0e0e0;
     text-align: left;
-    padding: 1rem;
+    padding: 1rem 0.75rem;
+    color: #1a1a1a;
+  }
+
+  .ref-main-nav .nav-menu a:hover,
+  .ref-main-nav .nav-menu a:focus-visible {
+    background: rgba(29, 143, 83, 0.08);
+    color: #1d8f53;
+  }
+
+  .ref-main-nav .nav-menu a.active {
+    background: rgba(29, 143, 83, 0.12);
+    color: #1d8f53;
+    border-bottom: 1px solid #1d8f53;
   }
 
   .ref-main-nav .nav-menu a:last-child {
@@ -1707,6 +1729,55 @@ textarea {
     height: 2px;
     background: #1a1a1a;
     border-radius: 2px;
+  }
+
+  .ref-main-nav .nav-menu {
+    position: fixed;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 0;
+    border-top: 1px solid #e0e0e0;
+    box-shadow: var(--shadow-soft);
+    z-index: 6;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+
+  .ref-main-nav .nav-menu.open {
+    display: flex;
+  }
+
+  .ref-main-nav .nav-menu a {
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+    padding: 0.9rem 0.75rem;
+    color: #1a1a1a;
+    font-size: 1rem;
+  }
+
+  .ref-main-nav .nav-menu a:hover,
+  .ref-main-nav .nav-menu a:focus-visible {
+    background: rgba(29, 143, 83, 0.08);
+    color: #1d8f53;
+  }
+
+  .ref-main-nav .nav-menu a.active {
+    background: rgba(29, 143, 83, 0.12);
+    color: #1d8f53;
+    border-bottom: 1px solid #1d8f53;
+  }
+
+  .ref-main-nav .nav-menu a:last-child {
+    border-bottom: 0;
   }
 
   .ref-services {
