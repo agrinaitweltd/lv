@@ -430,18 +430,6 @@ textarea {
   box-shadow: 0 16px 28px rgba(16, 26, 36, 0.18);
 }
 
-/* Override is-scrolled styles for mobile menu */
-@media (max-width: 919px) {
-  .ref-header.is-scrolled .ref-main-nav .nav-menu {
-    position: fixed !important;
-    right: 0;
-    top: auto;
-    width: 100%;
-    border: 1px solid #e0e0e0;
-    border-radius: 0;
-  }
-}
-
 .ref-header.is-scrolled .ref-main-nav .nav-menu.open {
   display: flex;
 }
@@ -1085,51 +1073,89 @@ textarea {
   box-shadow: 0 25px 50px rgba(19, 68, 110, 0.22);
 }
 
-.testimonials-grid {
-  display: grid;
-  gap: 1.5rem;
+/* ── About Me ────────────────────────────────────────────── */
+.about-me {
+  background: var(--surface);
 }
 
-.testimonial-card {
-  padding: 1.5rem;
+.about-me-inner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card);
-  transition: transform var(--transition), box-shadow var(--transition);
+  padding: 3rem 2.5rem;
 }
 
-.testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 22px 40px rgba(21, 50, 77, 0.14);
-}
-
-.testimonial-rating {
+.about-me-badge {
   display: flex;
-  gap: 0.3rem;
-  margin-bottom: 0.8rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1d8f53, #0f7341);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(29, 143, 83, 0.35);
 }
 
-.testimonial-rating .star {
-  display: inline-block;
+.about-me-age {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.about-me-age-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+  margin-top: 0.2rem;
+}
+
+.about-me-content {
+  flex: 1;
+}
+
+.about-me-content h2 {
+  margin: 0.3rem 0 0.8rem;
+}
+
+.about-me-lead {
+  color: var(--ink-700);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.about-me-facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.about-me-facts li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.97rem;
+  color: var(--ink-700);
+  font-weight: 500;
+}
+
+.about-me-facts li svg {
+  flex-shrink: 0;
   width: 18px;
   height: 18px;
-  background: linear-gradient(135deg, var(--green-700), var(--blue-700));
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-}
-
-.testimonial-text {
-  margin: 0.8rem 0;
-  color: var(--ink-700);
-  line-height: 1.65;
-  font-style: italic;
-}
-
-.testimonial-author {
-  margin: 0.8rem 0 0;
-  color: var(--ink-500);
-  font-weight: 600;
-  font-size: 0.9rem;
+  stroke: #1d8f53;
 }
 
 .faq-grid {
@@ -1627,10 +1653,13 @@ textarea {
   }
 
   .ref-header.is-scrolled .ref-main-nav .nav-menu {
+    position: absolute;
     right: 0;
     left: auto;
     top: calc(100% + 0.5rem);
     width: min(18rem, calc(100vw - 1rem));
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
   }
 
   .ref-midbar-inner {
@@ -1722,6 +1751,17 @@ textarea {
 
   .ref-services-cta p {
     font-size: 1.25rem;
+  }
+
+  .about-me-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .about-me-facts li {
+    justify-content: center;
   }
 }
 
